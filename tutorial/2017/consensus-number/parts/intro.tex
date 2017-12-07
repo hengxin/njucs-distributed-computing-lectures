@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.40\textwidth}{figs/raise-hands.png}
+  {\vspace{0.30cm}\centerline{\Large Are you Familar with \blue{Concurrent Programming}?}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.50\textwidth}{figs/parachuting}
+    {\vspace{0.30cm}\centerline{\Large The Key: Synchronization!}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.30\textwidth}{figs/jcip}
+
+  \begin{center}
+    {\Large Using the Synchronization Primitives \\ Provided by Your Favorite Languages.}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  % \begin{lstlisting}[style = Cstyle]
+  %   synchronized        BlockingQueue        Barrier
+
+  %   Semaphore           ConcurrentMap        Phaser
+  % \end{lstlisting}
+  \begin{columns}
+    \column{0.30\textwidth}
+      \texttt{synchronized}
+
+      \texttt{Semaphore}
+    \column{0.30\textwidth}
+      \texttt{BlockingQueue}
+      
+      \texttt{ConcurrentMap}
+    \column{0.30\textwidth}
+      \texttt{Phaser}
+
+      \texttt{Barrier}
+  \end{columns}
+
+  \vspace{0.80cm}
+  \pause
+  \begin{lstlisting}[style = Cstyle]
+    class AtomicInteger:
+      get()
+      set(int newValue)
+
+      getAndIncrement()
+      getAndDecrement()
+      getAndSet(int newValue)
+
+      compareAndSet(int expectedValue, int newValue)
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \centerline{\texttt{compareAndSet(int expectedValue, int newValue)}}
+
+  \centerline{\texttt{compareAndSwap(int expectedValue, int newValue)}}
+
+  \[
+    \text{\Large \textsf{CAS --- {\large CMPXCHG}}}
+  \]
+
+  \begin{columns}
+    \column{0.50\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+        impl.
+      \end{lstlisting}
+    \column{0.50\textwidth}
+      \begin{lstlisting}[style = Cstyle]
+        usage
+      \end{lstlisting}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
