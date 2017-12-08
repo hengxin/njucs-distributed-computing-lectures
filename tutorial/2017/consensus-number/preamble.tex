@@ -42,6 +42,27 @@
     showtabs = false,                  
 }
 
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+ 
+\lstdefinestyle{JavaStyle}{
+  language=Java,
+  basicstyle=\ttfamily\bfseries,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  numbers=left,
+  numberstyle=\tiny\color{cyan},
+  stepnumber=1,
+  numbersep = 1pt,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false
+}
+
 % colors
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\redoverlay}[2]{\textcolor<#2>{red}{#1}}
