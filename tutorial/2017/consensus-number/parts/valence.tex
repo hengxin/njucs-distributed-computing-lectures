@@ -1,5 +1,97 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
+  \centerline{\Large \blue{What is a Protocol $\mathcal{P}$?}}
+
+  \vspace{0.60cm}
+  \begin{description}
+    \item[Protocol] 
+      \[
+	\mathcal{P} = \set{\text{All executions of this protocol}}
+      \]
+    \item[Execution] 
+      \[
+	e = \sigma_0 \xrightarrow{o_1} \sigma_1 \xrightarrow{o_2} \cdots \xrightarrow{o_{n-1}} \sigma_{n}
+      \]
+    \item[State] 
+      \[
+	\sigma_i: \text{ states of individual threads} + \text{states of shared objects}
+      \]
+    \item[Operation] 
+      \[
+	o_i: \text{ method calls to a shared object}
+      \]
+  \end{description}
 \end{frame}
 %%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    Modeling $\mathcal{P}$ as a Computation ``Tree'' \\[2pt]
+    {\small (Binary Consensus for $2$ Threads)}
+  \end{center}
+  
+  \fignocaption{width = 0.60\textwidth}{figs/state-valent}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[Bivalent Initial State]
+    Every $2$-thread binary consensus protocol has a bivalent initial state.
+  \end{theorem}
+
+  \pause
+  \[
+    (A, B, O): (0,0,\ast) \quad (1,1,\ast) \quad (0,1,\ast) \quad (1,0,\ast)
+  \]
+
+  \pause
+  \fignocaption{width = 0.40\textwidth}{figs/bivalent-init-proof}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{lemma}[Bivalent Initial State]
+    Every $n$-thread (binary) consensus protocol has a bivalent initial state.
+  \end{lemma}
+
+  \pause
+  \vspace{0.30cm}
+  \begin{theorem}[Existence of Critical States]
+    Every wait-free consensus protocol has a critical state.
+  \end{theorem}
+
+  \pause
+  \vspace{0.30cm}
+  \begin{proof}
+    fig here.
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+\end{frame}
+%%%%%%%%%%%%%%%
