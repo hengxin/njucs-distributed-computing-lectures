@@ -1,5 +1,20 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
+  \begin{definition}[Solving Consensus]
+    ``$X$ solves $n$-process consensus'' if there exists a consensus protocol
+    \[
+      P_1, \cdots, P_n; W, X
+    \]
+    \begin{itemize}
+      \item $W$ is a set of (atomic) read/write registers;
+      \item $W$ and $X$ may be initialized to any state.
+    \end{itemize}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{definition}[Consensus Number]
     The \blue{\bf consensus number} for $X$ is the largest $n$ 
     for which $X$ solves $n$-thread consensus.
@@ -30,5 +45,16 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   beautiful ideas and proofs
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.65\textwidth}{figs/warning}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.60\textwidth}{figs/keep-calm-breath}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%

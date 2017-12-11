@@ -1,31 +1,5 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\Large \blue{What is a Protocol $\mathcal{P}$?}}
-
-  \vspace{0.60cm}
-  \begin{description}
-    \item[Protocol] 
-      \[
-	\mathcal{P} = \set{\text{All executions of this protocol}}
-      \]
-    \item[Execution] 
-      \[
-	e = \sigma_0 \xrightarrow{o_1} \sigma_1 \xrightarrow{o_2} \cdots \xrightarrow{o_{n-1}} \sigma_{n}
-      \]
-    \item[State] 
-      \[
-	\sigma_i: \text{ states of individual threads} + \text{states of shared objects}
-      \]
-    \item[Operation] 
-      \[
-	o_i: \text{ method calls to a shared object}
-      \]
-  \end{description}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
   \begin{center}
     Modeling $\mathcal{P}$ as a Computation ``Tree'' \\[2pt]
     {\small (Binary Consensus for $2$ Threads)}
@@ -64,34 +38,12 @@
   \end{theorem}
 
   \pause
-  \vspace{0.30cm}
-  \begin{proof}
-    fig here.
-  \end{proof}
+  \fignocaption{width = 0.35\textwidth}{figs/critical-state-proof}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
+  \fignocaption{width = 0.40\textwidth}{figs/breath-stone}
 \end{frame}
 %%%%%%%%%%%%%%%

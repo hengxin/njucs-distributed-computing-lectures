@@ -46,7 +46,24 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
+  \begin{definition}[Consensus Protocol]
+    (Informally), a consensus protocol is a system of $n$ processes
+    that communicate through a set of shared objects.
+
+    \begin{description}
+      \item[Propose]
+      \item[Communicate] 
+      \item[Decide] 
+    \end{description}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
   More clarification on ``termination''
+
+  termination requires wait-free implementation of the consensus object
 
   binary consensus problem
 \end{frame}
@@ -55,6 +72,7 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \fignocaption{width = 0.40\textwidth}{figs/shared-memory}
+  \centerline{Processes communicate through shared objects.}
 
   (redraw)
 \end{frame}

@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\Large \blue{Protocol in terms of set:}}
+
+  \vspace{0.60cm}
+  \begin{description}
+    \item[Protocol] 
+      \[
+	\mathcal{P} = \set{\text{All executions of this protocol}}
+      \]
+    \item[Execution] 
+      \[
+	e = \sigma_0 \xrightarrow{o_1} \sigma_1 \xrightarrow{o_2} \cdots \xrightarrow{o_{n-1}} \sigma_{n}
+      \]
+    \item[State] 
+      \[
+	\sigma_i: \text{ states of individual threads} + \text{states of shared objects}
+      \]
+    \item[Operation] 
+      \[
+	o_i: \text{ method calls to a shared object}
+      \]
+  \end{description}
+\end{frame}
+%%%%%%%%%%%%%%%
+
