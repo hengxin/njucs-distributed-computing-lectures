@@ -1,5 +1,11 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
+  \fignocaption{width = 0.30\textwidth}{figs/1-logo}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{theorem}[Consensus Number of Atomic Registers]
     Atomic registers have consensus number $1$.
   \end{theorem}
@@ -33,7 +39,20 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{theorem}
+  \begin{theorem}[``Weakness'' of Atomic Read/Write Registers]
+    It is \red{impossible} to construct a wait-free implementation of \blue{any object 
+    with consensus number greater than 1} using atomic read/write registers.
   \end{theorem}
+
+  \pause
+  \vspace{0.50cm}
+  \begin{columns}
+    \column{0.60\textwidth}
+      \begin{quote}
+	``$\cdots$ is perhaps one of the most striking impossibility results in Computer Science.''
+      \end{quote}
+    \column{0.40\textwidth}
+      \fignocaption{width = 0.60\textwidth}{figs/taomp}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
