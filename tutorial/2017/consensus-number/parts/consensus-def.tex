@@ -11,34 +11,24 @@
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
-% \begin{frame}{}
-%   \begin{description}
-%     \setlength{\itemsep}{8pt}
-%     \item[Consensus] Processes need to agree on a decision
-%     \item[Example] Agree on whether to commit a distributed transaction \\ to a database
-%   \end{description}
-% \end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{columns}
     \column{0.20\textwidth}
-      \centerline{\qquad\qquad \Large \bf \purple{Propose}}
+      \centerline{\qquad\qquad \large \bf \blue{Propose}}
     \column{0.60\textwidth}
       \fignocaption{width = 0.40\textwidth}{figs/vote}
     \column{0.20\textwidth}
-      \centerline{\Large \bf \purple{Decide}\qquad\qquad}
+      \centerline{\large \bf \blue{Decide}\qquad\qquad}
   \end{columns}
 
   \pause
-  \vspace{0.50cm}
+  \vspace{0.80cm}
   \begin{definition}[The Consensus Problem]
     \begin{description}
       \setlength{\itemsep}{5pt}
-      \item[Agreement] All \blue{(non-faulty)} processes must \red{\bf agreen on the same value}.
-      \item[Validity] The common decision value must be the value \red{\bf proposed} by some process.
-      \item[Termination] Each \blue{(non-faulty)} process must \red{\bf eventually} decide on a value.
+      \item[Agreement] All \blue{\footnotesize (non-faulty)} threads must \red{\it agreen} on the same value.
+      \item[Validity] The common decision value must be the value \red{\it proposed} by some thread.
+      \item[Wait-free] Each \blue{\footnotesize (non-faulty)} thread must decide in a \red{\it finite} number of steps.
     \end{description}
   \end{definition}
 \end{frame}
@@ -46,71 +36,23 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{definition}[Consensus Protocol]
-    (Informally), a consensus protocol is a system of $n$ processes
-    that communicate through a set of shared objects.
+  \fignocaption{width = 0.30\textwidth}{figs/no-wait}
 
-    \begin{description}
-      \item[Propose]
-      \item[Communicate] 
-      \item[Decide] 
-    \end{description}
-  \end{definition}
+  \vspace{0.20cm}
+  \begin{center}
+    Wait-free {\footnotesize (very informally)}: \\[6pt]
+
+    $\cdots$ \red{\it regardless of} the execution speeds of other threads \pause \\[8pt]
+
+    $\cdots$ \red{eventually} finishes when it runs \red{\it solo}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  More clarification on ``termination''
-
-  termination requires wait-free implementation of the consensus object
-
-  binary consensus problem
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \fignocaption{width = 0.40\textwidth}{figs/shared-memory}
-  \centerline{Processes communicate through shared objects.}
-
-  (redraw)
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{}
-  consensus object (fig here)
-
-  \begin{lstlisting}[style = JavaStyle]
-    public interface Consensus<T> {
-      T decide(T value);
-    }
-  \end{lstlisting}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{}
-  consensus protocol
-
-  \begin{lstlisting}[style = JavaStyle]
-  public abstract class ConsensusProtocol<T> 
-                     implements Consensus<T> {
-    protected T[] proposed = (T[]) new Object[N];
+  \fignocaption{width = 0.50\textwidth}{figs/yes-or-no}
   
-    void propose(T value) {
-      proposed[ThreadID.get()] = value;
-    }
-  
-    public abstract T decide(T value);
-  }
-  \end{lstlisting}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-  implement X using Y
+  \centerline{\Large We next focus on the \red{\it binary} consensus problem.}
 \end{frame}
 %%%%%%%%%%%%%%%

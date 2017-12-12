@@ -115,12 +115,36 @@ class |\red{AtomicInteger}|: // java.util.concurrent
   \pause
   \vspace{0.40cm}
   \begin{columns}
-    \column{0.60\textwidth}
-      \fignocaption{width = 0.50\textwidth}{figs/hierarchy}
-    \column{0.40\textwidth}
+    \column{0.50\textwidth}
+      \fignocaption{width = 0.60\textwidth}{figs/hierarchy}
+    \column{0.50\textwidth}
       \[
-	\text{\Large $1, \quad 2, \quad \cdots \infty$}
+	\text{\Large $1, \quad 2, \quad n, \quad \cdots \quad \infty$}
       \]
   \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \teal{\large The beautiful idea of ``Consensus Numbers''.}
+
+    \teal{\small (Maurice Herlihy@TOPLAS'1991)}
+  \end{center}
+
+  \fignocaption{width = 0.70\textwidth}{figs/wait-free-sync-paper}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.80\textwidth}{figs/consensus-number-table}
+
+  \begin{description}
+    \item[$\infty:$] CAS
+    \item[$1:$] Atomic read/write register
+    \item[$2:$] \textcolor{gray}{Queue, getAndSet}
+  \end{description}
 \end{frame}
 %%%%%%%%%%%%%%%

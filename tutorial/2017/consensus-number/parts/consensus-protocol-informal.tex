@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  protocol
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[Consensus Protocol]
+    (Informally), a consensus protocol is a system of $n$ processes
+    that communicate through a set of shared objects.
+
+    \begin{description}
+      \item[Propose]
+      \item[Communicate] 
+      \item[Decide] 
+    \end{description}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.40\textwidth}{figs/shared-memory}
+  \centerline{Processes communicate through shared objects.}
+
+  (redraw)
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  consensus object (fig here)
+
+  \begin{lstlisting}[style = JavaStyle]
+    public interface Consensus<T> {
+      T decide(T value);
+    }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  consensus protocol
+
+  \begin{lstlisting}[style = JavaStyle]
+  public abstract class ConsensusProtocol<T> 
+                     implements Consensus<T> {
+    protected T[] proposed = (T[]) new Object[N];
+  
+    void propose(T value) {
+      proposed[ThreadID.get()] = value;
+    }
+  
+    public abstract T decide(T value);
+  }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  implement X using Y
+\end{frame}
+%%%%%%%%%%%%%%%
