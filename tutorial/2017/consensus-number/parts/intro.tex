@@ -1,45 +1,44 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.45\textwidth}{figs/ask-question}
+  \fignocaption{width = 0.55\textwidth}{figs/always-ask-questions}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.40\textwidth}{figs/raise-hands.png}
-  {\vspace{0.30cm}\centerline{\Large Are you Familar with \blue{\bf Concurrent Programming}?}}
+  \fignocaption{width = 0.35\textwidth}{figs/survey}
+    {\vspace{0.30cm}\centerline{\Large \blue{\bf Concurrent Programming?}}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \fignocaption{width = 0.50\textwidth}{figs/parachuting}
-    {\vspace{0.30cm}\centerline{\Large The Key: \blue{\bf Synchronization}!}}
+    {\vspace{0.30cm}\centerline{\Large \blue{\bf Synchronization}}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.30\textwidth}{figs/jcip}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.55\textwidth}{figs/jcip}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.55\textwidth}{figs/cplusplus-concurrency}
+  \end{columns}
 
-  \begin{center}
-    {\Large Using the \blue{\bf Synchronization Primitives} \\ Provided by Your Favorite Languages.}
-  \end{center}
+  \vspace{1.00cm}
+  \centerline{\Large \blue{\bf Synchronization Primitives}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  % \begin{lstlisting}[style = Cstyle]
-  %   synchronized        BlockingQueue        Barrier
-
-  %   Semaphore           ConcurrentMap        Phaser
-  % \end{lstlisting}
   \begin{columns}
     \column{0.30\textwidth}
-      \texttt{\qquad synchronized}
+      \texttt{\quad\qquad Lock}
 
-      \texttt{\qquad Semaphore}
+      \texttt{\quad\qquad Semaphore}
     \column{0.30\textwidth}
       \texttt{\quad BlockingQueue}
       
@@ -50,58 +49,78 @@
       \texttt{\qquad Barrier}
   \end{columns}
 
-  \vspace{0.80cm}
   \pause
-  \begin{lstlisting}[style = Cstyle]
-    class AtomicInteger:
-      get()
-      set(int newValue)
+  \vspace{0.50cm}
+  \begin{lstlisting}[style = CStyle]
+class |\red{AtomicInteger}|: // java.util.concurrent
+  get()            // read
+  set(int newVal)  // write
 
-      getAndIncrement()
-      getAndDecrement()
-      getAndSet(int newValue)
+  getAndIncrement()
+  getAndDecrement()
+  getAndSet(int newVal)
 
-      compareAndSet(int expectedValue, int newValue)
+  compareAndSet(int expect, int update)|\uncover<3->{\red{\;\;// atomically}}|
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  \centerline{\texttt{compareAndSet(int expectedValue, int newValue)}}
+  \fignocaption{width = 0.30\textwidth}{figs/cas-logo}
+  \centerline{\textsf{(compareAndSet \quad compareAndSwap)}}
 
-  \centerline{\texttt{compareAndSwap(int expectedValue, int newValue)}}
+  \pause
+  \vspace{0.50cm}
+  \begin{lstlisting}[style = Cstyle]
+  CAS(int expect, int update) {  // atomically
+    old = get()
 
-  \[
-    \text{\Large \textsf{CAS --- {\large CMPXCHG}}}
-  \]
-
-  \begin{columns}
-    \column{0.50\textwidth}
-      \begin{lstlisting}[style = Cstyle]
-        impl.
-      \end{lstlisting}
-    \column{0.50\textwidth}
-      \begin{lstlisting}[style = Cstyle]
-        usage
-      \end{lstlisting}
-  \end{columns}
+    if (old == expect)
+      set(update)
+      return true
+    
+    return false
+  }
+  \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\teal{\large Tasks: Implementing Consensus using Given Primitives.}}
+  \fignocaption{width = 0.30\textwidth}{figs/question-mark}
 
+  \centerline{\Large \blue{(Relative) \red{\it power} of various synchronization primitives}}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\Large \blue{\red{\it Power} measured by the \red{\it consensus} problem}}
+
+  \fignocaption{width = 0.30\textwidth}{figs/possible-vs-impossible}
+
+  \begin{center}
+    {\large \teal{\red{$Q:$} Is it possible to solve the consensus problem \\ using this synchronization primitive?}}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.60\textwidth}{figs/ruler}
+
+  \centerline{\Large \red{\it Consensus number:} \blue{$n$-thread consensus problems}}
+  
+  \pause
+  \vspace{0.40cm}
   \begin{columns}
-    \column{0.45\textwidth}
-      \fignocaption{width = 0.60\textwidth}{figs/mission-possible}
-
-      \fignocaption{width = 0.50\textwidth}{figs/follow-protocol}
-    \column{0.45\textwidth}
-      \fignocaption{width = 0.60\textwidth}{figs/mission-impossible}
-
-      \fignocaption{width = 0.50\textwidth}{figs/question-mark}
+    \column{0.60\textwidth}
+      \fignocaption{width = 0.50\textwidth}{figs/hierarchy}
+    \column{0.40\textwidth}
+      \[
+	\text{\Large $1, \quad 2, \quad \cdots \infty$}
+      \]
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
