@@ -1,5 +1,11 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
+  \fignocaption{width = 0.40\textwidth}{figs/infinity-logo}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
   \centerline{\LARGE $n$-Consensus Protocol Using {\normalsize (a Single)} \textsf{CAS}}
 
   \fignocaption{width = 0.65\textwidth}{figs/cas-consensus-protocol}
@@ -23,6 +29,10 @@ class CASConsensus implements Consensus {
   }
 }
   \end{lstlisting}
+
+  \pause
+  \vspace{0.50cm}
+  \centerline{The decision value is established by the thread that \blue{\it succeeds}.}
 \end{frame}
 %%%%%%%%%%%%%%%
 %   |\red{// shared atomic read/write registers}|

@@ -1,18 +1,21 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    Modeling $\mathcal{P}$ as a Computation ``Tree'' \\[2pt]
+    Modeling $\mathcal{P}$ as an Execution ``Tree'' \\[2pt]
     {\small (Binary Consensus for $2$ Threads)}
   \end{center}
   
-  \fignocaption{width = 0.60\textwidth}{figs/state-valent}
+  % \fignocaption{width = 0.60\textwidth}{figs/state-valent}
+  \begin{center}
+    \input{tikz/state-valent}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{theorem}[Bivalent Initial State]
-    Every $2$-thread binary consensus protocol has a bivalent initial state.
+    Every \blue{$2$}-thread \blue{binary} consensus protocol has a \red{bivalent initial} state.
   \end{theorem}
 
   \pause
@@ -27,23 +30,20 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{lemma}[Bivalent Initial State]
-    Every $n$-thread (binary) consensus protocol has a bivalent initial state.
-  \end{lemma}
+  \begin{theorem}[Bivalent Initial State]
+    Every \blue{$n$}-thread consensus protocol has a \red{bivalent initial} state.
+  \end{theorem}
 
   \pause
   \vspace{0.30cm}
   \begin{theorem}[Existence of Critical States]
-    Every wait-free consensus protocol has a critical state.
+    Every wait-free consensus protocol has a \red{critical} state.
   \end{theorem}
 
   \pause
-  \fignocaption{width = 0.35\textwidth}{figs/critical-state-proof}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \fignocaption{width = 0.40\textwidth}{figs/breath-stone}
+  % \fignocaption{width = 0.35\textwidth}{figs/critical-state-proof}
+  \begin{center}
+    \input{tikz/critical-state-proof}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%

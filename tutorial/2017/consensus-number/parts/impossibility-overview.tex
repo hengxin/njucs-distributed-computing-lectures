@@ -1,10 +1,50 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{columns}
-    \column{0.45\textwidth}
+    \column{0.50\textwidth}
+      \fignocaption{width = 0.80\textwidth}{figs/take-a-breath}
+    \column{0.50\textwidth}
+      \pause
       \fignocaption{width = 0.65\textwidth}{figs/warning}
-    \column{0.45\textwidth}
-      \fignocaption{width = 0.60\textwidth}{figs/keep-calm-breath}
   \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[Consensus Number of Atomic Registers]
+    Atomic read/write registers have consensus number $1$.
+  \end{theorem}
+
+  \pause
+  \vspace{0.50cm}
+  \fignocaption{width = 0.30\textwidth}{figs/mission-impossible}
+
+  \begin{theorem}[``Weakness'' of Atomic Registers]
+    Atomic read/write registers \red{\it cannot} solve $2$-thread consensus.
+  \end{theorem}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Impossibility Results}
+
+  \pause
+  \vspace{0.60cm}
+  \begin{center}
+    {\Large \blue{By contradiction}}  \\[8pt]
+
+    {\Large $\exists \mathcal{P}$ \blue{solves} $2$-thread consensus}  \\[25pt]
+
+    \pause
+    {\Large Consistent} \\[10pt]
+
+    {\Large Valid}  \\[10pt]
+
+    {\Large \redoverlay{Wait-free}{4-}}  \\[6pt]
+
+    \uncover<4->{\large (eventually finishes when it runs \red{\it solo})}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%

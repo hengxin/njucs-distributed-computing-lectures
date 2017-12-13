@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{description}[<+->]
+    \item[Protocol] 
+      \[
+	\mathcal{P} = \set{\text{All executions of this protocol}}
+      \]
+    \item[Execution] 
+      \[
+	e = \sigma_0 \xrightarrow{o_1} \sigma_1 \xrightarrow{o_2} \cdots \xrightarrow{o_{n-1}} \sigma_{n}
+      \]
+    \item[State] 
+      \[
+	\sigma_i: \text{ states of individual threads} + \text{states of shared objects}
+      \]
+    \item[Operation] 
+      \[
+	o_i: \text{ a method call to some shared object}
+      \]
+  \end{description}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \[
+    \red{e = \sigma_0 \xrightarrow{o_1} \sigma_1 \xrightarrow{o_2} \cdots \xrightarrow{o_{n-1}} \sigma_{n}}
+  \]
+
+  \begin{enumerate}[(i)]
+    \item \red{Sequential execution:} alternates matching invocations and responses.
+    \item Only interleaved at the granularity of \red{complete method calls}.
+  \end{enumerate}
+
+  \vspace{0.30cm}
+  \begin{theorem}[]
+    A consensus protocol is correct iff all its \blue{sequential} executions are correct.
+  \end{theorem}
+\end{frame}
+%%%%%%%%%%%%%%%
