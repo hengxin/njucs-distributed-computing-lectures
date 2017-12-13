@@ -1,19 +1,40 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  protocol
+  \centerline{\LARGE Consensus Protocol}
+
+  \vspace{0.50cm}
+  \fignocaption{width = 0.30\textwidth}{figs/follow-protocol}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{definition}[Consensus Protocol]
-    (Informally), a consensus protocol is a system of $n$ processes
-    that communicate through a set of shared objects.
+  \begin{definition}[Consensus Protocol {\footnotesize (Informally)}]
+    A \red{\it consensus protocol} is a system of $n$ \blue{\it threads}
+    that communicate through a set of \blue{\it shared objects}.
 
-    \begin{description}
+    \begin{description}[Communicate]
       \item[Propose]
+	\[
+	  \set{0,1}^{n}
+	\]
       \item[Communicate] 
+	\[
+	  \textsf{invocation} \qquad \textsf{response}
+	\]
       \item[Decide] 
+	\[
+	  \set{0,1}^{n}
+	\]
+    \end{description}
+
+    \pause
+    \vspace{0.30cm}
+    It \red{\it correctly} solves the $n$-thread consensus problem:
+    \begin{description}
+      \item[Consistent] $\cdots$
+      \item[Valid] $\cdots$
+      \item[Wait-free] $\cdots$
     \end{description}
   \end{definition}
 \end{frame}
@@ -21,46 +42,50 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.40\textwidth}{figs/shared-memory}
-  \centerline{Processes communicate through shared objects.}
-
-  (redraw)
+  \fignocaption{width = 0.65\textwidth}{figs/shared-memory-model}
+  \centerline{Threads communicate through shared objects.}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  consensus object (fig here)
+  \fignocaption{width = 0.65\textwidth}{figs/consensus-obj}
 
-  \begin{lstlisting}[style = JavaStyle]
-    public interface Consensus<T> {
-      T decide(T value);
-    }
+  \begin{lstlisting}[style = CStyle]
+                interface Consensus {
+                  int decide(int val);
+                }
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  consensus protocol
+  \begin{lstlisting}[style = CStyle]
+class ConsensusProtocol implements Consensus {
+  |\uncover<2->{\red{// atomic read/write registers}}|
+  int[] proposed = new int[$N$];  
 
-  \begin{lstlisting}[style = JavaStyle]
-  public abstract class ConsensusProtocol<T> 
-                     implements Consensus<T> {
-    protected T[] proposed = (T[]) new Object[N];
-  
-    void propose(T value) {
-      proposed[ThreadID.get()] = value;
-    }
-  
-    public abstract T decide(T value);
+  void propose(int val) {
+    proposed[ThreadID.get()] = val;
   }
+
+  abstract int decide(int val);
+}
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  implement X using Y
+  \begin{definition}[``Solves''] 
+    A \red{\it class $C$} of synchronization primitive \red{\it solves} $n$-thread consensus 
+    if there exist a \red{\it consensus protocol} using 
+
+    \begin{enumerate}[(i)]
+      \item any number of objects of class $C$ and
+      \item any number of atomic read/write registers.
+    \end{enumerate}
+  \end{definition}
 \end{frame}
 %%%%%%%%%%%%%%%

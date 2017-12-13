@@ -26,7 +26,7 @@
   \begin{definition}[The Consensus Problem]
     \begin{description}
       \setlength{\itemsep}{5pt}
-      \item[Agreement] All \blue{\footnotesize (non-faulty)} threads must \red{\it agreen} on the same value.
+      \item[Consistent] All \blue{\footnotesize (non-faulty)} threads must \red{\it agree} on the same value.
       \item[Validity] The common decision value must be the value \red{\it proposed} by some thread.
       \item[Wait-free] Each \blue{\footnotesize (non-faulty)} thread must decide in a \red{\it finite} number of steps.
     \end{description}
@@ -36,15 +36,20 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.30\textwidth}{figs/no-wait}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.80\textwidth}{figs/progress-paper}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.70\textwidth}{figs/no-wait}
+  \end{columns}
 
-  \vspace{0.20cm}
+  \vspace{0.40cm}
   \begin{center}
     Wait-free {\footnotesize (very informally)}: \\[6pt]
 
     $\cdots$ \red{\it regardless of} the execution speeds of other threads \pause \\[8pt]
 
-    $\cdots$ \red{eventually} finishes when it runs \red{\it solo}
+    $\cdots$ \red{\it eventually} finishes when it runs \red{\it solo}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
