@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\LARGE $n$-Consensus Protocol Using \textsf{CAS}}
+  \centerline{\LARGE $n$-Consensus Protocol Using {\normalsize (a Single)} \textsf{CAS}}
 
   \fignocaption{width = 0.65\textwidth}{figs/cas-consensus-protocol}
 \end{frame}
@@ -8,32 +8,42 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  \begin{lstlisting}[style = JavaStyle]
- public class CASConsensus<T> 
-      extends ConsensusProtocol<T> {
-   private final int FIRST = -1;
-   private AtomicInteger r = new AtomicInteger(FIRST);
+  \begin{lstlisting}[style = CStyle]
+class CASConsensus implements Consensus {
+  |\red{// shared CAS object}|
+  CAS r = new CAS($\bot$);  |\red{// initialized}|
 
-   |\textcolor{teal}{@Override}|
-   public T decide(T value) {
-     propose(value);
+  int decide(int val) {
+    first = r.|\red{compareAndSet}|($\bot$, val);
 
-     int i = ThreadID.get();
-     if (r.compareAndSet(FIRST, i))  // I won
-       return proposed[i];
-     else                            // I lose
-       return proposed[r.get()];
-   }
- }
+    if (first == $\bot$)
+      return val;    // I won
+    else
+      return first;  // I lose
+  }
+}
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
-
+%   |\red{// shared atomic read/write registers}|
+%   int[] proposed = new int[$N$];  
+% 
+%     if (r.compareAndSet($\bot$, i))  // I won
+%       return proposed[i];
+%     else                            // I lose
+%       return proposed[r.|\redoverlay{get()}{2-}|];
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{theorem}[Computational Power of \textsf{CAS}]
-    A register providing \red{\textsf{compareAndSet()}} and \textsf{get()} methods
+  \begin{theorem}[Power of \textsf{CAS}]
+    A \red{\textsf{CAS}} register providing the \red{\textsf{compareAndSet()}} method
     can solve the consensus problem for \blue{any number} of threads.
+  \end{theorem}
+
+  \pause
+  \vspace{0.60cm}
+  \begin{theorem}[Power of \textsf{CAS}]
+    A \red{\textsf{CAS}} register providing the \red{\textsf{compareAndSet()}} method
+    has the consensus number \blue{$\infty$}.
   \end{theorem}
 \end{frame}
 %%%%%%%%%%%%%%%

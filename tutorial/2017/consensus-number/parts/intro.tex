@@ -73,14 +73,14 @@ class |\red{AtomicInteger}|: // java.util.concurrent
   \pause
   \vspace{0.50cm}
   \begin{lstlisting}[style = Cstyle]
-  CAS(int expect, int update) {  // atomically
-    old = get()
-
+  |\red{// ''appears to'' be atomic}|
+  compareAndSet(int expect, int update) { 
+    old = this.val
+  
     if (old == expect)
       set(update)
-      return true
     
-    return false
+    return old
   }
   \end{lstlisting}
 \end{frame}
@@ -127,6 +127,18 @@ class |\red{AtomicInteger}|: // java.util.concurrent
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
+  \begin{definition}[Consensus Number]
+    The \red{\it consensus number} of a class $C$ of synchronization primitive 
+    is the largest $n$ for which $C$ \red{\it solves\footnote{\teal{defined later}}} $n$-thread consensus.
+
+    \vspace{0.30cm}
+    If no largest $n$ exists, the consensus number is said to be \red{\it infinite}.
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{center}
     \teal{\large The beautiful idea of ``Consensus Numbers''.}
 
@@ -139,8 +151,11 @@ class |\red{AtomicInteger}|: // java.util.concurrent
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.80\textwidth}{figs/consensus-number-table}
+  \begin{theorem}[Consensus Numbers]
+    \fignocaption{width = 0.80\textwidth}{figs/consensus-number-table}
+  \end{theorem}
 
+  \pause
   \begin{description}
     \item[$\infty:$] CAS
     \item[$1:$] Atomic read/write register
