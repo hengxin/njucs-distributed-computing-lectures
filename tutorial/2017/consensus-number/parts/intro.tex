@@ -78,7 +78,7 @@ class |\red{AtomicInteger}|: // java.util.concurrent
     old = this.val
   
     if (old == expect)
-      set(update)
+      this.val = update
     
     return old
   }
