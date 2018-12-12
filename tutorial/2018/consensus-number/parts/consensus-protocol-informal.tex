@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Consensus Protocol}
+
+  \vspace{0.50cm}
+  \fignocaption{width = 0.30\textwidth}{figs/follow-protocol}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[Consensus Protocol {\footnotesize (Informally)}]
+    A \red{\it consensus protocol} is a system of $n$ \blue{\it threads}
+    that communicate through a set of \blue{\it shared objects}.
+
+    \begin{description}[Communicate]
+      \item[Propose]
+	\[
+	  \set{0,1}^{n}
+	\]
+      \item[Communicate] 
+	\[
+	  \textsf{invocation} \qquad \textsf{response}
+	\]
+      \item[Decide] 
+	\[
+	  \set{0,1}^{n}
+	\]
+    \end{description}
+
+    \pause
+    \vspace{0.30cm}
+    It \red{\it correctly} solves the $n$-thread consensus problem:
+    \begin{description}
+      \item[Consistent] $\cdots$
+      \item[Valid] $\cdots$
+      \item[Wait-free] $\cdots$
+    \end{description}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.65\textwidth}{figs/shared-memory-model}
+
+  \centerline{\Large Threads communicate through shared objects.}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \fignocaption{width = 0.65\textwidth}{figs/consensus-obj}
+
+  \begin{lstlisting}[style = CStyle]
+                interface Consensus {
+                  int decide(int val);
+                }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+% \begin{frame}[fragile]{}
+%   \begin{lstlisting}[style = CStyle]
+% class ConsensusProtocol implements Consensus {
+%   |\uncover<2->{\red{// atomic read/write registers}}|
+%   int[] proposed = new int[$N$];  
+% 
+%   void propose(int val) {
+%     proposed[ThreadID.get()] = val;
+%   }
+% 
+%   abstract int decide(int val);
+% }
+%   \end{lstlisting}
+% \end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{definition}[``Solves''] 
+    A \red{\it class $C$} of synchronization primitive \red{\it solves} $n$-thread consensus 
+    if there exist a \red{\it consensus protocol} using 
+
+    \begin{enumerate}[(i)]
+      \item any number of \blue{objects of class $C$}
+      \item any number of \blue{atomic read/write registers}
+	\pause
+      \item \red{initialized to any state}
+    \end{enumerate}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.65\textwidth}{figs/consensus-obj-rw}
+
+  \centerline{\Large A class $C$ solves $n$-thread consensus.}
+\end{frame}
+%%%%%%%%%%%%%%%

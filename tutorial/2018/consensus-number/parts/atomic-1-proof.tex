@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{columns}
+    \column{0.50\textwidth}
+      \fignocaption{width = 0.80\textwidth}{figs/take-a-breath}
+    \column{0.50\textwidth}
+      \pause
+      \fignocaption{width = 0.50\textwidth}{figs/1-logo}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[``Weakness'' of Atomic Registers]
+    Atomic read/write registers \red{\it cannot} solve $2$-thread consensus.
+  \end{theorem}
+
+  \pause
+  \vspace{0.60cm}
+  \begin{proof}
+    \begin{enumerate}[(i)]
+      \item By contradiction: $\exists \mathcal{P}$
+      \pause
+      \item Run $\mathcal{P}$ until it reaches a \blue{critical} state $s$.
+    \end{enumerate}
+
+    \pause
+    \vspace{0.50cm}
+    \centerline{\red{$Q:$ What are the next decision steps of two threads?}}
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  From the critical state $s$:
+  \begin{description}
+    \setlength{\itemsep}{10pt}
+    \item[\textsc{Case 1}] $A$ reads
+    \item[\textsc{Case 2}] $A$ writes $r_0$; \quad $B$ writes $r_1$
+    \item[\textsc{Case 3}] $A$ writes $r$; \quad $B$ writes $r$
+  \end{description}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % \fignocaption{width = 0.50\textwidth}{figs/atomic-register-case-read}
+  \begin{center}
+    \resizebox{0.50\textwidth}{!}{\input{tikz/atomic-register-case-read}}
+  \end{center}
+
+  \centerline{\Large \textsc{Case 1}: $A$ reads}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % \fignocaption{width = 0.60\textwidth}{figs/atomic-register-case-write-different}
+  \begin{center}
+    \resizebox{0.60\textwidth}{!}{\input{tikz/atomic-register-case-write-different}}
+  \end{center}
+
+  \centerline{\Large \textsc{Case 2}: $A$ writes $r_0$; \quad $B$ writes $r_1$}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  % \fignocaption{width = 0.45\textwidth}{figs/atomic-register-case-write-same}
+  \begin{center}
+    \resizebox{0.45\textwidth}{!}{\input{tikz/atomic-register-case-write-same}}
+  \end{center}
+
+  \centerline{\Large \textsc{Case 3}: $A$ writes $r$; \quad $B$ writes $r$}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[``Weakness'' of Atomic Registers]
+    It is \red{impossible} to construct a wait-free implementation of \blue{any object 
+    with consensus number $\ge 2$} using atomic read/write registers.
+  \end{theorem}
+
+  \pause
+  \vspace{0.50cm}
+  \begin{columns}
+    \column{0.60\textwidth}
+      \begin{quote}
+	``$\cdots$ is perhaps one of the most striking impossibility results in Computer Science.''
+      \end{quote}
+    \column{0.40\textwidth}
+      \fignocaption{width = 0.60\textwidth}{figs/taomp}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%

@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.35\textwidth}{figs/fifo-queue}
+
+  \begin{theorem}[Consensus Number of Queue]
+    FIFO queues have consensus number $2$.
+  \end{theorem}
+
+  \pause
+  \begin{proof}
+    \begin{columns}
+      \column{0.50\textwidth}
+	\[ \ge 2 \]
+	\uncover<3->{
+	  \blue{By protocol for $2$-thread consensus.}
+	}
+      \column{0.45\textwidth}
+	\[ < 3 \]
+	\uncover<4->{
+	  \blue{By the valency argument.}
+	}
+    \end{columns}
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{theorem}[``Power'' of FIFO Queue]
+    The FIFO queue class can solve $2$-thread consensus.
+  \end{theorem}
+
+  \pause
+  \begin{lstlisting}[style = JavaStyle]
+  public class QueueConsensus<T> 
+       extends ConsensusProtocol<T> {
+    private static final int WIN = 0;
+    private static final int LOSE = 1;
+
+    Queue queue;
+
+    // initialize queue with two items
+    public QueueConsensus() {
+      queue = new Queue();
+      queue.enq(WIN);
+      queue.enq(LOSE);
+    }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[style = JavaStyle]
+  public class QueueConsensus<T> 
+       extends ConsensusProtocol<T> {
+
+    // figure out which thread was fist
+    public T decide(T val) {
+      propose(val);
+
+      int status = queue.deq();
+      int i = ThreadID.get();
+
+      if (status == WIN)
+        return proposed[i];
+      else
+        return proposed[1-i];
+    }
+  }
+  \end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{theorem}[``Weakness'' of FIFO Queue]
+    The FIFO queue class cannot solve $3$-thread consensus.
+  \end{theorem}
+
+  \vspace{0.30cm}
+  \begin{proof}
+    By the valency argument and case analysis.
+  \end{proof}
+\end{frame}
+%%%%%%%%%%%%%%%

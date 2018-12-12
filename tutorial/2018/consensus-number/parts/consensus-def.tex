@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \centerline{\LARGE Consensus}
+
+  \vspace{0.50cm}
+  \fignocaption{width = 0.50\textwidth}{figs/consensus}
+
+  \vspace{-0.30cm} 
+  \centerline{``It looks like we have a consensus.''}　
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{columns}
+    \column{0.20\textwidth}
+      \centerline{\qquad\qquad \large \bf \blue{Propose}}
+    \column{0.60\textwidth}
+      \fignocaption{width = 0.40\textwidth}{figs/vote}
+    \column{0.20\textwidth}
+      \centerline{\large \bf \blue{Decide}\qquad\qquad}
+  \end{columns}
+
+  \pause
+  \vspace{0.80cm}
+  \begin{definition}[The Consensus Problem]
+    \begin{description}
+      \setlength{\itemsep}{5pt}
+      \item[Consistent] All \blue{\footnotesize (non-faulty)} threads must \red{\it agree} on the same value.
+      \item[Valid] The common decision value must be the value \red{\it proposed} by some thread.
+      \item[Wait-free] Each \blue{\footnotesize (non-faulty)} thread must decide in a \red{\it finite} number of steps.
+    \end{description}
+  \end{definition}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{columns}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.80\textwidth}{figs/progress-paper}
+    \column{0.45\textwidth}
+      \fignocaption{width = 0.70\textwidth}{figs/no-wait}
+  \end{columns}
+
+  \vspace{0.40cm}
+  \begin{center}
+    Wait-free {\footnotesize (very informally)}: \\[6pt]
+
+    $\cdots$ \red{\it regardless of} the execution speeds of other threads \pause \\[8pt]
+
+    $\cdots$ \red{\it eventually} finishes when it runs \red{\it solo}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \fignocaption{width = 0.50\textwidth}{figs/yes-or-no}
+  
+  \centerline{\Large We next focus on the \red{\it binary} consensus problem.}
+\end{frame}
+%%%%%%%%%%%%%%%
