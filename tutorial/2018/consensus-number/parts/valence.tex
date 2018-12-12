@@ -1,11 +1,12 @@
+% file: valence.tex
+
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    Modeling $\mathcal{P}$ as an Execution ``Tree'' \\[2pt]
-    {\small (Binary Consensus for $2$ Threads)}
+    Modeling $\mathcal{P}$ as a \red{Finite Execution ``Tree''} \\[2pt]
+    \teal{\footnotesize (Binary Consensus for $2$ Threads)}
   \end{center}
   
-  % \fignocaption{width = 0.60\textwidth}{figs/state-valent}
   \begin{center}
     \input{tikz/state-valent}
   \end{center}
@@ -24,7 +25,7 @@
   \]
 
   \pause
-  \fignocaption{width = 0.40\textwidth}{figs/bivalent-init-proof}
+  \fig{width = 0.40\textwidth}{figs/bivalent-init-proof}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -41,8 +42,8 @@
   \end{theorem}
 
   \pause
-  % \fignocaption{width = 0.35\textwidth}{figs/critical-state-proof}
   \begin{center}
+    {\large \red{By Contradiction: Wait-free!}}
     \input{tikz/critical-state-proof}
   \end{center}
 \end{frame}

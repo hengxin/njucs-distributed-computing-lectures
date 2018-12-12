@@ -1,11 +1,13 @@
+% file: impossibility-overview.tex
+
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{columns}
     \column{0.50\textwidth}
-      \fignocaption{width = 0.80\textwidth}{figs/take-a-breath}
+      \fig{width = 0.80\textwidth}{figs/take-a-breath}
     \column{0.50\textwidth}
       \pause
-      \fignocaption{width = 0.65\textwidth}{figs/warning}
+      \fig{width = 0.65\textwidth}{figs/warning}
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -18,7 +20,7 @@
 
   \pause
   \vspace{0.50cm}
-  \fignocaption{width = 0.30\textwidth}{figs/mission-impossible}
+  \fig{width = 0.30\textwidth}{figs/mission-impossible}
 
   \begin{theorem}[``Weakness'' of Atomic Registers]
     Atomic read/write registers \red{\it cannot} solve $2$-thread consensus.
@@ -28,23 +30,26 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\LARGE Impossibility Results}
+  \centerline{\teal{\LARGE Impossibility Results}}
 
   \pause
   \vspace{0.60cm}
   \begin{center}
-    {\Large \blue{By contradiction}}  \\[8pt]
-
-    {\Large $\exists \mathcal{P}$ \blue{solves} $2$-thread consensus}  \\[25pt]
-
-    \pause
-    {\Large Consistent} \\[10pt]
-
-    {\Large Valid}  \\[10pt]
-
-    {\Large \redoverlay{Wait-free}{4-}}  \\[6pt]
-
-    \uncover<4->{\large (eventually finishes when it runs \red{\it solo})}
+    {\Large \red{By Contradiction:}}  \\[8pt]
+    {\Large $\exists \mathcal{P}$ \teal{solves} $2$-thread consensus}  \\[25pt]
   \end{center}
+
+  \begin{columns}
+    \column{0.50\textwidth}
+      \pause
+      \begin{center}
+	\red{\Large Consistent} \\[10pt]
+	\blue{\Large Valid}  \\[10pt]
+	\red{\Large Wait-free}
+      \end{center}
+    \column{0.50\textwidth}
+      \pause
+      \fig{width = 0.45\textwidth}{figs/not-both}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%

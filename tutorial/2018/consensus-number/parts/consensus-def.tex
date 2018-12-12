@@ -1,28 +1,20 @@
+% file: consensus-def.tex
+
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\LARGE Consensus}
+  \centerline{\teal{\LARGE Consensus}}
 
   \vspace{0.50cm}
-  \fignocaption{width = 0.50\textwidth}{figs/consensus}
-
-  \vspace{-0.30cm} 
-  \centerline{``It looks like we have a consensus.''}　
+  \fig{width = 0.50\textwidth}{figs/consensus-hands}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \begin{columns}
-    \column{0.20\textwidth}
-      \centerline{\qquad\qquad \large \bf \blue{Propose}}
-    \column{0.60\textwidth}
-      \fignocaption{width = 0.40\textwidth}{figs/vote}
-    \column{0.20\textwidth}
-      \centerline{\large \bf \blue{Decide}\qquad\qquad}
-  \end{columns}
+  \centerline{\large \blue{$d \gets \textsc{Decide}(v)$}}
+  \fig{width = 0.20\textwidth}{figs/vote}
 
   \pause
-  \vspace{0.80cm}
   \begin{definition}[The Consensus Problem]
     \begin{description}
       \setlength{\itemsep}{5pt}
@@ -38,26 +30,35 @@
 \begin{frame}{}
   \begin{columns}
     \column{0.45\textwidth}
-      \fignocaption{width = 0.80\textwidth}{figs/progress-paper}
-    \column{0.45\textwidth}
-      \fignocaption{width = 0.70\textwidth}{figs/no-wait}
+      \fig{width = 0.80\textwidth}{figs/progress-paper}
+    \column{0.50\textwidth}
+      \begin{columns}
+	\column{0.50\textwidth}
+	  \fig{width = 0.90\textwidth}{figs/herlihy}
+	\column{0.50\textwidth}
+	  \fig{width = 0.80\textwidth}{figs/shavit}
+      \end{columns}
   \end{columns}
 
   \vspace{0.40cm}
   \begin{center}
-    Wait-free {\footnotesize (very informally)}: \\[6pt]
+    \red{Wait-free} {\footnotesize (very informally)}: \\
+    \teal{(Must finish in a finite number of steps.)} \\[8pt] \pause
 
-    $\cdots$ \red{\it regardless of} the execution speeds of other threads \pause \\[8pt]
-
-    $\cdots$ \red{\it eventually} finishes when it runs \red{\it solo}
+    $\cdots$ \purple{\it regardless of} the execution speeds of other threads \pause \\[6pt]
+    $\cdots$ \purple{\it eventually} finishes when it runs \red{\it solo}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.50\textwidth}{figs/yes-or-no}
+  \fig{width = 0.40\textwidth}{figs/yes-or-no}
   
-  \centerline{\Large We next focus on the \red{\it binary} consensus problem.}
+  \vspace{0.30cm}
+  \begin{center}
+    {\Large We next focus on the \red{\it binary} consensus problem.} \\[6pt] \pause
+    \cyan{\large (``宿舍空调开还是不开?'')}
+  \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%

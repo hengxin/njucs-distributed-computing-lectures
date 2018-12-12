@@ -1,11 +1,13 @@
+% file: atomic-1-proof.tex
+
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{columns}
     \column{0.50\textwidth}
-      \fignocaption{width = 0.80\textwidth}{figs/take-a-breath}
+      \fig{width = 0.80\textwidth}{figs/take-a-breath}
     \column{0.50\textwidth}
       \pause
-      \fignocaption{width = 0.50\textwidth}{figs/1-logo}
+      \fig{width = 0.50\textwidth}{figs/1-logo}
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -20,33 +22,44 @@
   \vspace{0.60cm}
   \begin{proof}
     \begin{enumerate}[(i)]
-      \item By contradiction: $\exists \mathcal{P}$
+      \setlength{\itemsep}{5pt}
+      \item \red{By Contradiction:} $\exists \mathcal{P}$ solves $2$-thread consensus using R/W registers.
       \pause
-      \item Run $\mathcal{P}$ until it reaches a \blue{critical} state $s$.
+      \item Run $\mathcal{P}$ until it reaches a \red{critical} state $s$.
+	\pause
+	\begin{itemize}
+	  \setlength{\itemsep}{3pt}
+	  \item $A$'s next step carries $\mathcal{P}$ to a $0$-valent state
+	  \item $B$'s next step carries $\mathcal{P}$ to a $1$-valent state
+	\end{itemize}
     \end{enumerate}
 
     \pause
     \vspace{0.50cm}
-    \centerline{\red{$Q:$ What are the next decision steps of two threads?}}
+    \centerline{\large \red{$Q:$ What are the next steps of two threads $A$ and $B$?}}
   \end{proof}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  From the critical state $s$:
+  \[
+    \teal{r_i: \text{ read/write register}}
+  \]
+
+  From the \red{critical state $s$}:
   \begin{description}
     \setlength{\itemsep}{10pt}
-    \item[\textsc{Case 1}] $A$ reads
-    \item[\textsc{Case 2}] $A$ writes $r_0$; \quad $B$ writes $r_1$
-    \item[\textsc{Case 3}] $A$ writes $r$; \quad $B$ writes $r$
+    \item[\textsc{Case 1}:] $A$ reads $r$
+    \item[\textsc{Case 2}:] $A$ writes $r_0$; \quad $B$ writes $r_1$
+    \item[\textsc{Case 3}:] $A$ writes $r$; \quad $B$ writes $r$
   \end{description}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  % \fignocaption{width = 0.50\textwidth}{figs/atomic-register-case-read}
+  % \fig{width = 0.50\textwidth}{figs/atomic-register-case-read}
   \begin{center}
     \resizebox{0.50\textwidth}{!}{\input{tikz/atomic-register-case-read}}
   \end{center}
@@ -57,7 +70,7 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  % \fignocaption{width = 0.60\textwidth}{figs/atomic-register-case-write-different}
+  % \fig{width = 0.60\textwidth}{figs/atomic-register-case-write-different}
   \begin{center}
     \resizebox{0.60\textwidth}{!}{\input{tikz/atomic-register-case-write-different}}
   \end{center}
@@ -68,7 +81,7 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  % \fignocaption{width = 0.45\textwidth}{figs/atomic-register-case-write-same}
+  % \fig{width = 0.45\textwidth}{figs/atomic-register-case-write-same}
   \begin{center}
     \resizebox{0.45\textwidth}{!}{\input{tikz/atomic-register-case-write-same}}
   \end{center}
@@ -92,7 +105,7 @@
 	``$\cdots$ is perhaps one of the most striking impossibility results in Computer Science.''
       \end{quote}
     \column{0.40\textwidth}
-      \fignocaption{width = 0.60\textwidth}{figs/taomp}
+      \fig{width = 0.60\textwidth}{figs/taomp}
   \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%

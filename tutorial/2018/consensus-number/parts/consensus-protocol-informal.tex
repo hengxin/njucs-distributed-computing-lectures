@@ -1,9 +1,11 @@
+% file: consensus-protocol-informal.tex
+
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \centerline{\LARGE Consensus Protocol}
+  \centerline{\teal{\LARGE Consensus Protocol}}
 
   \vspace{0.50cm}
-  \fignocaption{width = 0.30\textwidth}{figs/follow-protocol}
+  \fig{width = 0.30\textwidth}{figs/follow-protocol}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -24,7 +26,7 @@
 	\]
       \item[Decide] 
 	\[
-	  \set{0,1}^{n}
+	  \set{0,1}
 	\]
     \end{description}
 
@@ -32,9 +34,9 @@
     \vspace{0.30cm}
     It \red{\it correctly} solves the $n$-thread consensus problem:
     \begin{description}
-      \item[Consistent] $\cdots$
-      \item[Valid] $\cdots$
-      \item[Wait-free] $\cdots$
+      \item[Consistent:] $\cdots$
+      \item[Valid:] $\cdots$
+      \item[Wait-free:] $\cdots$
     \end{description}
   \end{definition}
 \end{frame}
@@ -42,7 +44,7 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.65\textwidth}{figs/shared-memory-model}
+  \fig{width = 0.65\textwidth}{figs/shared-memory-model}
 
   \centerline{\Large Threads communicate through shared objects.}
 \end{frame}
@@ -50,7 +52,7 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  \fignocaption{width = 0.65\textwidth}{figs/consensus-obj}
+  \fig{width = 0.65\textwidth}{figs/consensus-obj}
 
   \begin{lstlisting}[style = CStyle]
                 interface Consensus {
@@ -80,8 +82,8 @@
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{definition}[``Solves''] 
-    A \red{\it class $C$} of synchronization primitive \red{\it solves} $n$-thread consensus 
-    if there exist a \red{\it consensus protocol} using 
+    A \red{\it class $C$} of synchronization primitive \red{\it solves} $n$-thread consensus \\
+    if there exists a \red{\it consensus protocol} using 
 
     \begin{enumerate}[(i)]
       \item any number of \blue{objects of class $C$}
@@ -95,7 +97,7 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fignocaption{width = 0.65\textwidth}{figs/consensus-obj-rw}
+  \fig{width = 0.65\textwidth}{figs/consensus-obj-rw}
 
   \centerline{\Large A class $C$ solves $n$-thread consensus.}
 \end{frame}

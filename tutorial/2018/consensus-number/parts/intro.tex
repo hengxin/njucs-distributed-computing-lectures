@@ -2,12 +2,6 @@
 
 %%%%%%%%%%%%%%%
 \begin{frame}{}
-  \fig{width = 0.55\textwidth}{figs/always-ask-questions}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
   \fig{width = 0.35\textwidth}{figs/survey}
     {\vspace{0.30cm}\centerline{\Large \blue{\bf Concurrent Programming?}}}
 \end{frame}
@@ -24,35 +18,32 @@
 \begin{frame}{}
   \begin{columns}
     \column{0.45\textwidth}
-      \fig{width = 0.55\textwidth}{figs/jcip}
+      \fig{width = 0.50\textwidth}{figs/jcip}
     \column{0.45\textwidth}
-      \fig{width = 0.55\textwidth}{figs/cplusplus-concurrency}
+      \fig{width = 0.50\textwidth}{figs/cplusplus-concurrency}
   \end{columns}
 
   \vspace{1.00cm}
   \centerline{\Large \blue{\bf Synchronization Primitives}}
+
+  \pause
+  \vspace{0.60cm}
+  \begin{columns}
+    \column{0.30\textwidth}
+      \texttt{\quad\qquad Lock} \\
+      \texttt{\quad\qquad Semaphore}
+    \column{0.30\textwidth}
+      \texttt{\quad BlockingQueue} \\
+      \texttt{\quad ConcurrentMap}
+    \column{0.30\textwidth}
+      \texttt{\qquad Phaser} \\
+      \texttt{\qquad Barrier}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%
 \begin{frame}[fragile]{}
-  \begin{columns}
-    \column{0.30\textwidth}
-      \texttt{\quad\qquad Lock}
-
-      \texttt{\quad\qquad Semaphore}
-    \column{0.30\textwidth}
-      \texttt{\quad BlockingQueue}
-      
-      \texttt{\quad ConcurrentMap}
-    \column{0.30\textwidth}
-      \texttt{\qquad Phaser}
-
-      \texttt{\qquad Barrier}
-  \end{columns}
-
-  \pause
-  \vspace{0.50cm}
   \begin{lstlisting}[style = CStyle]
 class |\red{AtomicInteger}|: // java.util.concurrent
   get()            // read
@@ -62,7 +53,7 @@ class |\red{AtomicInteger}|: // java.util.concurrent
   getAndDecrement()
   getAndSet(int newVal)
 
-  compareAndSet(int expect, int update)|\uncover<3->{\red{\;\;// atomically}}|
+  compareAndSet(int expect, int update)|\uncover<2->{\red{\;\;// atomically}}|
   \end{lstlisting}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -92,19 +83,7 @@ class |\red{AtomicInteger}|: // java.util.concurrent
 \begin{frame}{}
   \fig{width = 0.30\textwidth}{figs/question-mark}
 
-  \centerline{\Large \blue{(Relative) \red{\it power} of various synchronization primitives}}
-\end{frame}
-%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%
-\begin{frame}{}
-  \centerline{\Large \blue{\red{\it Power} measured by the \red{\it consensus} problem}}
-
-  \fig{width = 0.30\textwidth}{figs/possible-vs-impossible}
-
-  \begin{center}
-    {\large \teal{\red{$Q:$} Is it possible to solve the consensus problem \\ using this synchronization primitive?}}
-  \end{center}
+  \centerline{\Large \blue{(Relative) \red{\it Power} of Various Synchronization Primitives}}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -112,16 +91,16 @@ class |\red{AtomicInteger}|: // java.util.concurrent
 \begin{frame}{}
   \fig{width = 0.60\textwidth}{figs/ruler}
 
-  \centerline{\Large \red{\it Consensus number:} \blue{$n$-thread consensus problems}}
+  \centerline{\Large \red{\it Consensus Number:} \blue{$n$-thread consensus problems}}
   
   \pause
   \vspace{0.40cm}
   \begin{columns}
-    \column{0.50\textwidth}
-      \fig{width = 0.60\textwidth}{figs/hierarchy}
-    \column{0.50\textwidth}
+    \column{0.40\textwidth}
+      \fig{width = 0.70\textwidth}{figs/hierarchy}
+    \column{0.60\textwidth}
       \[
-	\text{\Large $1, \quad 2, \quad n, \quad \cdots \quad \infty$}
+	\text{\Large $1, \quad 2, \quad \cdots, \quad n, \quad \cdots \quad \infty$}
       \]
   \end{columns}
 \end{frame}
@@ -142,12 +121,16 @@ class |\red{AtomicInteger}|: // java.util.concurrent
 %%%%%%%%%%%%%%%
 \begin{frame}{}
   \begin{center}
-    \teal{\large The beautiful idea of ``Consensus Numbers''.}
-
-    \teal{\small (Maurice Herlihy@TOPLAS'1991)}
+    \teal{\large The Beautiful Idea of ``Consensus Numbers''} \\
+    \teal{(Maurice Herlihy@TOPLAS'1991)}
   \end{center}
 
-  \fig{width = 0.70\textwidth}{figs/wait-free-sync-paper}
+  \begin{columns}
+    \column{0.50\textwidth}
+      \fig{width = 0.90\textwidth}{figs/herlihy}
+    \column{0.50\textwidth}
+      \fig{width = 0.95\textwidth}{figs/wait-free-sync-paper}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
 
@@ -157,11 +140,17 @@ class |\red{AtomicInteger}|: // java.util.concurrent
     \fig{width = 0.80\textwidth}{figs/consensus-number-table}
   \end{theorem}
 
-  \pause
-  \begin{description}
-    \item[$\infty:$] CAS
-    \item[$1:$] Atomic read/write register
-    \item[$2:$] \textcolor{gray}{Queue, getAndSet}
-  \end{description}
+  \begin{columns}
+    \column{0.60\textwidth}
+      \pause
+      \begin{description}
+	\item[$\infty:$] \red{CAS}
+	\item[$1:$] \red{Atomic read/write register}
+	\item[$2:$] \textcolor{gray}{Queue, getAndSet}
+      \end{description}
+    \column{0.40\textwidth}
+      \pause
+      \fig{width = 0.50\textwidth}{figs/possible-vs-impossible}
+  \end{columns}
 \end{frame}
 %%%%%%%%%%%%%%%
